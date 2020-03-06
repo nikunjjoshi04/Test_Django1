@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Author Details</title>
+</head>
+<body>
+<a href="{% url 'nikka:first_name' %}" style="float:right;">Home</a>
+    <div class="row">
+        <h3 align="center">Nikunj joshi</h3>
+    </div>
+<hr>
+<p>{{ author.id }}</p>
+<p>{{ author.name }}</p>
+<p>{{ author.email }}</p>
+</body>
+</html>

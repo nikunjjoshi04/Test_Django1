@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Full Name</title>
+</head>
+<body>
+    {% if user.is_authenticated %}
+    <a href="{% url 'accounts:logout' %}" style="float:right;">Logout</a>
+    <div class="row">
+        <h3 align="center">Nikunj joshi</h3>
+    </div>
+
+    <hr>
+    {% for entry in  entrys %}
+        <pre><h4><a href="{% url 'nikka:entry_details' entry.id %}">{{ entry }}</a></h4></pre>
+        {% for author in entry.authors.all %}
+    <pre>   {{ forloop.counter }}) <a href="{% url 'nikka:author_details' author.id %}">{{ author }}</a></pre>
+        {% endfor %}
+    {% endfor %}
+    <hr>
+    {% else %}
+        <a href="{% url 'accounts:login' %}" style="float:right;">Login</a>
+    {% endif %}
+</body>
+</html>

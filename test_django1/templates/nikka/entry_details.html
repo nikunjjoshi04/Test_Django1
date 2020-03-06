@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Entry Details</title>
+</head>
+<body>
+<a href="{% url 'nikka:first_name' %}" style="float:right;">Home</a>
+    <div class="row">
+        <h3 align="center">Blog Entry Details</h3>
+    </div>
+<hr>
+{{ entry.id }}<br><br>
+<!--{{ entry.blog }}<br><br>-->
+<pre><a href="{% url 'nikka:blog_details' entry.blog.id %}">{{ entry.blog }}</a></pre>
+{{ entry.headline }}<br><br>
+{{ entry.body_text }}<br><br>
+{{ entry.pub_date }}<br><br>
+{{ entry.mod_date }}<br><br>
+<hr>
+    <h4 align="center">Authors</h4>
+{% for author in entry.authors.all %}
+    <pre>   {{ forloop.counter }}) <a href="{% url 'nikka:author_details' author.id %}">{{ author }}</a></pre>
+{% endfor %}
+<hr>
+{{ entry.number_of_comments }}<br><br>
+{{ entry.number_of_pingbacks }}<br><br>
+{{ entry.rating }}<br><br>
+</body>
+</html>
